@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["username"] = $username;
             $_SESSION["name"] = $row["name"];
             $_SESSION["role"] = $row["role"];
-            $_SESSION["user_id"] = $row["user_id"];
+            $_SESSION["pasien_id"] = $row["pasien_id"];
             //set notifikasi selamat datang
             $_SESSION['notification'] = ['type' => 'primary', 'message' => 'Selamat Datang di Hospital Management!'];
             //redirect ke dashboard
