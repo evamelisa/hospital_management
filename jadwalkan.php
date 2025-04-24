@@ -40,7 +40,7 @@ include '.includes/header.php';
                    </div>
                    <!-- textarea untuk konten -->
                     <div class="mb-3">
-                      <label for="content" class="form-label">Keluhan Yang di Alami</label>
+                      <label for="content" class="form-label">Keluhan yang di alami</label>
                       <textarea class="form-control" id="content" name="content" required></textarea>
                     </div>
                     <!-- tombol submit -->
