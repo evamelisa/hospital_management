@@ -13,7 +13,7 @@ include '.includes/header.php';
                     enctype="multipart/form-data">
                 <!-- input untuk mengunggah nama pasien -->
                  <div class="mb-3">
-                    <label for="post_title" class="form-label">Nama Lengkap Anda</label>
+                    <label for="post_title" class="form-label">Nama Lengkap</label>
                     <input type="text" class="form-control" name="post_title" require>
                  </div>
                  <!-- input untuk mengunggah tanggal pertemuan -->
