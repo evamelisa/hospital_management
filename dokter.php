@@ -21,8 +21,9 @@ include '.includes/toast_notification.php';
                     <thead>
                         <tr class="text-center">
                             <th width="50px">#</th>
-                            <th width="200">Nama</th>
-                            <th width="200px">Spesialis</th>
+                            
+                            <th width="150px">Nama Dokter</th>
+                            <th width="150px">Spesialisasi</th>
                             <th width="150px">Pilihan</th>
                         </tr>
                     </thead>
@@ -35,9 +36,10 @@ include '.includes/toast_notification.php';
                      while ($dokter = mysqli_fetch_assoc($exec)) :
                         ?>
                         <tr>
-                            <!-- menampilkan nomor, nama dokter, spesialis, dan opsi -->
+                            <!-- menampilkan nomor, nama dokter, spesialisasi, dan opsi -->
                              <td><?= $index++; ?></td>
                              <td><?= $dokter['nama']; ?></td>
+                             <td><?= $dokter['spesialisasi']; ?></td>
                              <td>
                                 <!-- dropdown untuk opsi edit dan delete -->
                                  <div class="dropdown">
@@ -47,7 +49,7 @@ include '.includes/toast_notification.php';
                                     </button>
                                     <div class="dropdown-menu">
                                         <a href="#" class="dropdown-item" data-bs-toggle="modal"
-                                        data-bs-toggle="#editDokter_<?= $dokter['dokter_id']; ?>">
+                                        data-bs-target="#editDokter_<?= $dokter['dokter_id']; ?>">
                                         <i class="bx bx-edit-alt me-2"></i>Edit</a>
                                         <a href="#" class="dropdown-item" data-bs-toggle="modal"
                                         data-bs-target="#deleteDokter_<?= $dokter['dokter_id']; ?>">
@@ -56,7 +58,7 @@ include '.includes/toast_notification.php';
                                  </div>
                              </td>
                         </tr>
-                        <!-- modal untuk hapus data kategori -->
+                        <!-- modal untuk hapus data dokter -->
                           <div class="modal fade" id="deleteDokter_<?= $dokter['dokter_id']; ?>" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -67,8 +69,8 @@ include '.includes/toast_notification.php';
                                     <div class="modal-body">
                                         <form action="proses_dokter.php" method="POST">
                                             <div>
-                                                <p>Tindakan ini tidak bisa dibaatalkan.</p>
-                                                <input type="hidden" nama="catID" value="<?= $dokter['dokter_id']; ?>">
+                                                <p>Tindakan ini tidak bisa dibatalkan.</p>
+                                                <input type="hidden" name="catID" value="<?= $dokter['dokter_id']; ?>">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary"
@@ -90,13 +92,10 @@ include '.includes/toast_notification.php';
                                     </div>
                                     <div class="modal-body">
                                         <form action="proses_dokter.php" method="POST">
-                                            <!-- input untuk nama dokter -->
+                                            <!-- input untuk nama  dokter -->
                                              <input type="hidden" name="catID" value="<?= $dokter['dokter_id']; ?>">
-                                             <div class="form-group">
-                                                <label>Nama Dokter</label>
-                                                <!-- input untuk nama dokter -->
-                                                 <input type="text" value="<?= $dokter['dokter_id']; ?>" name="nama" class="form-control">
-                                             </div>
+                                             
+
                                              <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                                 <button type="submit" name="update" class="btn btn-warning">Update</button>
@@ -115,24 +114,65 @@ include '.includes/toast_notification.php';
 </div>
 <?php include '.includes/footer.php'; ?>
 
-<!-- modal untuk tambah data kategori -->
+<!-- modal untuk tambah data dokter -->
  <div class="modal fade" id="addDokter" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-tittle">Tambah</h5>
+                <h5 class="modal-tittle">Tambah Dokter</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <form action="proses_dokter.php" method="POST">
-                    <div>
-                        <label for="namaDokter" class="form-label">Nama Dokter</label>
-                        <!-- input untuk nama dokter baru -->
-                         <input type="text" class="form-control" name="nama" require/>
-                    </div>
+                    
+
+                <div class="form-group mb-3">
+                    <label for="dokter" class="form-label">Dokter</label>
+                    <select name="spesialisasi" class="form-control" required>
+                        <option value="">-- Pilih Dokter --</option>
+                        <?php
+                        $daftar_dokter = [
+                            'dr. Nining Septika, S.Ked.',
+                            'dr. Anita Cintya, Sp.A.',
+                            'dr. Alex, Sp.B.',
+                            'dr. Zayn Usman, drg.',
+                            'dr. Alana, Sp.OG.',
+                            'dr. Raka, Sp.M.',
+                            'dr. Lestari, Sp.G.',
+                            'dr. Bagas Setyawan, Sp.S.'
+                        ];
+                        foreach ($daftar_dokter as $nama) {
+                            $selected = ($dokter['dokter'] ?? '') == $nama ? 'selected' : '';
+                            echo "<option value=\"$nama\" $selected>$nama</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="dokter" class="form-label">Spesialisasi</label>
+                    <select name="spesialisasi" class="form-control" required>
+                        <option value="">-- Pilih Spesialisasi --</option>
+                        <?php
+                        $daftar_dokter = [
+                            'Umum',
+                            'Anak',
+                            'Bedah',
+                            'Gigi',
+                            'Kandungan',
+                            'Mata',
+                            'Gizi',
+                            'Saraf'
+                        ];
+                        foreach ($daftar_dokter as $nama) {
+                            $selected = ($dokter['dokter'] ?? '') == $nama ? 'selected' : '';
+                            echo "<option value=\"$nama\" $selected>$nama</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary"
-                        data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
