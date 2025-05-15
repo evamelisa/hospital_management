@@ -20,20 +20,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION['notification'] = [
                 'type' => 'primary',
-                'message' => 'selamat datang kembali'
+                'message' => 'Selamat datang di Hospital Manegement'
             ];
             header('Location: ../dashboard.php');
             exit();
         }else {
             $_SESSION['notification'] = [
                 'type' => 'danger',
-                'message' => 'username atau password salah'
+                'message' => 'Username atau password salah'
             ];
         }
     } else {
         $_SESSION['notification'] = [
             'type' =>'danger',
-            'message' => 'username atau password salah',
+            'message' => 'Username atau password salah',
 
         ];
     }
