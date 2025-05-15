@@ -1,12 +1,35 @@
+<?php
+session_start(); // Inisialisasi session
+
+// Ambil notifikasi jika ada, kemudian hapus dari session
+$notification = $_SESSION['notification'] ?? null;
+if ($notification) {
+    unset($_SESSION['notification']);
+}
+
+// Periksa apakah user sudah login (username atau role sudah diset di session)
+if (isset($_SESSION["nama"]) || isset($_SESSION["role"])) {
+    // Jika user sudah login, berikan notifikasi dan arahkan ke dashboard
+    $_SESSION['notification'] = [
+        'type' => 'danger',
+        'message' => 'Silahkan Logout Terlebih Dahulu!'
+    ];
+    header('Location: ../dashboard.php');
+    exit();
+}
+
+// Kode lainnya dapat ditempatkan di sini
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>IdeKreatif</title>
+    <title>Hospital Management</title>
     <meta name="description" content="" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/4.png" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
     <!-- Icons. Uncomment required icon fonts -->

@@ -5,16 +5,16 @@
     <!-- Logo -->
     <div class="app-brand justify-content-center">
       <a href="index.html" class="app-brand-link gap-2">
-        <span class="app-brand-text demo text-uppercase fw-bolder">IdeKreatif</span>
+        <span class="app-brand-text demo text-uppercase fw-bolder">Hospital Management</span>
       </a>
     </div>
     <!-- /Logo -->
-    <h4 class="mb-2">Selamat datang di IdeKreatif! 👋</h4>
+    <h4 class="mb-2">Selamat datang di Hospital Management! 👋</h4>
     <form class="mb-3" action="login_auth.php" method="POST">
       <div class="mb-3">
-        <label class="form-label">Username</label>
-        <input type="text" class="form-control" name="username"
-          placeholder="Enter your username" autofocus required />
+        <label class="form-label">nama</label>
+        <input type="text" class="form-control" name="nama"
+          placeholder="Enter your nama" autofocus required />
       </div>
       <div class="mb-3 form-password-toggle">
         <div class="d-flex justify-content-between">

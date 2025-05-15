@@ -6,18 +6,15 @@
     <div class="app-brand justify-content-center">
       <a href="index.html" class="app-brand-link gap-2">
         <span class="app-brand-logo demo"></span>
-        <span class="app-brand-text demo text-uppercase fw-bolder">IdeKreatif</span>
+        <span class="app-brand-text demo text-uppercase fw-bolder">Hospital Management</span>
       </a>
     </div>
     <!-- /Logo -->
     <form action="register_process.php" class="mb-3" method="POST">
+      
       <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Masukkan Username" autofocus/>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Nama</label>
-        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" />
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama" />
       </div>
       <div class="mb-3 form-password-toggle">
         <label class="form-label" for="password">Password</label>
