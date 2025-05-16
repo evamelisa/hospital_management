@@ -12,7 +12,7 @@
     <h4 class="mb-2">Selamat datang di Hospital Management! 👋</h4>
     <form class="mb-3" action="login_auth.php" method="POST">
       <div class="mb-3">
-        <label class="form-label">nama</label>
+        <label class="form-label">Nama</label>
         <input type="text" class="form-control" name="nama"
           placeholder="Enter your nama" autofocus required />
       </div>
