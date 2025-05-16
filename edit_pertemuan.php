@@ -44,15 +44,15 @@ if ($result->num_rows > 0) {
                             <label for="gender" class="form-label">Gender</label>
                             <select class="form-select" name="gender" required>
                                 <option value="" disabled>-- Pilih gender --</option>
-                                <option value="laki_laki" <?php if ($pertemuan['gender'] == 'laki_laki') echo 'selected'; ?>>laki-laki</option>
-                                <option value="perempuan" <?php if ($pertemuan['gender'] == 'perempuan') echo 'selected'; ?>>perempuan</option>
+                                <option value="laki_laki" <?php if ($pertemuan['gender'] == 'laki_laki') echo 'selected'; ?>>Laki-laki</option>
+                                <option value="perempuan" <?php if ($pertemuan['gender'] == 'perempuan') echo 'selected'; ?>>Perempuan</option>
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="dokter_id" class="form-label">Dokter</label>
                             <select class="form-select" name="dokter_id" required>
-                                <option value="" disabled>Pilih salah satu</option>
+                                <option value="" disabled>Pilih salah Satu</option>
                                 <?php
                                 $queryDokter = "SELECT * FROM dokter";
                                 $resultDokter = $conn->query($queryDokter);
