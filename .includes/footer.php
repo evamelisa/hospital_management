@@ -6,11 +6,8 @@
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
-                  <a href="#" target="_blank" class="footer-link fw-bolder">SMKN 4 Tanjungpinang</a>.
+                  <a href="#" target="_blank" class="footer-link fw-bolder">Hospital Management</a>.
                   All rights reserved.
-                </div>
-                <div>
-                  <a href="#" target="_blank" class="footer-link me-4">TIM RPL SMKN 4 Tanjungpinang</a>
                 </div>
               </div>
             </footer>
