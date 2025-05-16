@@ -19,21 +19,21 @@
       </a>
     </li>
     <!-- Forms & Tables -->
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Posts</span></li>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pertemuan</span></li>
     <!-- Forms -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-detail"></i>
-        <div data-i18n="Posts">Pertemuan</div>
+        <div data-i18n="pertemuan">Pertemuan</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="posts.php" class="menu-link">
+          <a href="pertemuan.php" class="menu-link">
             <div data-i18n="Basic Inputs">Pertemuan Baru</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="kategori.php" class="menu-link">
+          <a href="dokter.php" class="menu-link">
             <div data-i18n="Input groups">Dokter</div>
           </a>
         </li>

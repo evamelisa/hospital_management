@@ -14,7 +14,7 @@ if ($notification) {
 if (empty($_SESSION["nama"]) || empty($_SESSION["role"])) {
     $_SESSION['notification'] = [
         'type' => 'danger' ,
-        'message' => 'silahkan login terlebih dahulu!'
+        'message' => 'Silahkan login terlebih dahulu!'
     ];
     header('Location: ./auth/login.php');
     exit();
